@@ -1,0 +1,53 @@
+.button {
+  display: inline-block;
+  cursor: pointer;
+  border: 0;
+  font-weight: 700;
+  line-height: 1;
+  font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.small {
+  padding: 10px 16px;
+  font-size: 12px;
+}
+.medium {
+  padding: 11px 20px;
+  font-size: 14px;
+}
+.large {
+  padding: 12px 24px;
+  font-size: 16px;
+}
+
+.rounded-none {
+  border-radius: 0;
+}
+.rounded-medium {
+  border-radius: 1em;
+}
+.rounded-strong {
+  border-radius: 2em;
+}
+
+.shadow-none {
+  box-shadow: none;
+}
+.shadow-default {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+.shadow-strong {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
+}
+
+.border-none {
+  border: none;
+}
+.border-default {
+  border-width: 1px;
+  border-style: solid;
+}
+.border-strong {
+  border-width: 2px;
+  border-style: solid;
+}
