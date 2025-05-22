@@ -1,17 +1,28 @@
 import './button.css';
 
+/*
+label: Text showed on button
+size: Optional size selector, values are small, medium and large
+onClick: Optional function executed on click
+backgroundColor: Optional color of background button
+textColor: Optional color of text font
+rounded: Optional selector of rounded style level
+shadow: Optional selector of shadow background style level
+border: Optional selector of border style level
+borderColor: Optional color of border
+*/
 export interface ButtonProps {
   label: string;
   size?: 'small' | 'medium' | 'large';
   onClick?: () => void;
 
   backgroundColor?: string;
-  borderColor?: string;
   textColor?: string;
 
   rounded?: 'none' | 'medium' | 'strong';
   shadow?: 'none' | 'default' | 'strong';
   border?: 'none' | 'default' | 'strong';
+  borderColor?: string;
 }
 
 export const Button = ({
@@ -19,12 +30,13 @@ export const Button = ({
   size = 'medium',
   onClick,
   backgroundColor,
-  borderColor,
   textColor,
   rounded = 'medium',
   shadow = 'none',
   border = 'none',
+  borderColor
 }: ButtonProps) => {
+  //Checks for every style possible and default values and joins all classnames
   const className = [
     'button',
     size,
@@ -33,11 +45,11 @@ export const Button = ({
     `border-${border}`,
   ].join(' ');
 
-  const style: React.CSSProperties = {
+  const style = {
     backgroundColor,
     borderColor,
     color: textColor,
-  };
+  } as React.CSSProperties;
 
   return (
     <button

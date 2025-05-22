@@ -1,5 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
 import { Table } from './components/Table/Table';
+import { testData } from './components/Table/testData';
 
 const meta = {
   title: 'Example/Table',
@@ -9,13 +10,28 @@ const meta = {
   },
   tags: ['autodocs'],
   argTypes: {
-    
+
     columns: {
       control: { type: 'number', min: 1 },
     },
-    data: {
-      control: { type: 'object' },
+    columnWidth: {
+      name: 'Column Width',
+      control: 'select',
+      options: [["small", "small", "small"], ['medium', 'medium', 'medium'], ['large', 'large', 'large'], ['auto', 'auto', 'auto'], ['1fr', '1fr', '1fr'], ['200px', '200px', '200px'], ['25%', '25%', '25%']],
+      description: 'Width to apply to all columns',
     },
+    columnAlign: {
+      name: 'Column Align',
+      control: 'select',
+      options: [["left", "left", "left"], ['center', 'center', 'center'], ['right', 'right', 'right']],
+      description: 'Align to apply to all columns',
+    },
+    data:
+    {
+      table: {
+        disable: true
+      }
+    }
   },
 } satisfies Meta<typeof Table>;
 
@@ -24,12 +40,8 @@ type Story = StoryObj<typeof meta>;
 
 export const BasicTable: Story = {
   args: {
-    columns: 4,
-    data: [
-      ["Nombre", "Edad", "País"],
-      ["Ana", "28", "España"],
-      ["Luis", "32", "México"],
-      ["Sara", "24", "Argentina"]
-    ],
+    columns: 3,
+    columnWidth: ["small", "small", "small"],
+    data: testData,
   },
 };

@@ -20,11 +20,11 @@
 }
 
 .borders-cell .table-cell {
-  border: 1px solid #ccc;
+  border: 1px solid var(--border-color);;
 }
 
 .borders-row .table-row {
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid var(--border-color);;
 }
 
 .borders-none .table-cell,
@@ -37,4 +37,15 @@
   box-sizing: border-box;
   min-width: 0;
   overflow-wrap: anywhere;
+}
+
+.table.list .table-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+.table.list .table-cell {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
