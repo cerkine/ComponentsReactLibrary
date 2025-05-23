@@ -3,8 +3,15 @@
   color: var(--text-color);
   background-color: var(--bg-color);
   width: fit-content;
+  overflow: hidden;
 }
 
+/* Evita doble borde entre celdas */
+.table.borders-cell {
+  border: 1px solid var(--border-color);
+}
+
+/* Grid / List row wrapper */
 .table-row {
   display: flex;
   flex-wrap: wrap;
@@ -15,23 +22,56 @@
   display: grid;
 }
 
+.table.list .table-row {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+/* Hover */
 .table-row:hover {
-  background-color: var(--hover-color);
+  background-color: var(--table-hover);
 }
 
-.borders-cell .table-cell {
-  border: 1px solid var(--border-color);;
+/* Rounded variants */
+.table-rounded-none {
+  border-radius: 0;
+}
+.table-rounded-medium {
+  border-radius: 1em;
+}
+.table-rounded-strong {
+  border-radius: 2em;
 }
 
-.borders-row .table-row {
-  border-bottom: 1px solid var(--border-color);;
+/* Shadow variants */
+.table-shadow-none {
+  box-shadow: none;
+}
+.table-shadow-default {
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
+}
+.table-shadow-strong {
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
+/* Border options */
 .borders-none .table-cell,
 .borders-none .table-row {
   border: none;
 }
 
+.borders-row .table-row:not(:last-child) {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.borders-cell .table-row:not(:last-child) .table-cell {
+  border-bottom: 1px solid var(--border-color);
+}
+.borders-cell .table-cell:not(:last-child) {
+  border-right: 1px solid var(--border-color);
+}
+
+/* Table cell */
 .table-cell {
   padding: 0.5rem;
   box-sizing: border-box;
@@ -39,11 +79,7 @@
   overflow-wrap: anywhere;
 }
 
-.table.list .table-row {
-  display: flex;
-  flex-wrap: nowrap;
-}
-
+/* List cell text behavior */
 .table.list .table-cell {
   overflow: hidden;
   text-overflow: ellipsis;

@@ -7,47 +7,51 @@
   font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
-.small {
+.button.hover:hover {
+  background-color: var(--button-hover);
+}
+
+.button-small {
   padding: 10px 16px;
   font-size: 12px;
 }
-.medium {
+.button-medium {
   padding: 11px 20px;
   font-size: 14px;
 }
-.large {
+.button-large {
   padding: 12px 24px;
   font-size: 16px;
 }
 
-.rounded-none {
+.button-rounded-none {
   border-radius: 0;
 }
-.rounded-medium {
+.button-rounded-medium {
   border-radius: 1em;
 }
-.rounded-strong {
+.button-rounded-strong {
   border-radius: 2em;
 }
 
-.shadow-none {
+.button-shadow-none {
   box-shadow: none;
 }
-.shadow-default {
+.button-shadow-default {
   box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.15);
 }
-.shadow-strong {
+.button-shadow-strong {
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.25);
 }
 
-.border-none {
+.button-border-none {
   border: none;
 }
-.border-default {
+.button-border-default {
   border-width: 1px;
   border-style: solid;
 }
-.border-strong {
+.button-border-strong {
   border-width: 2px;
   border-style: solid;
 }

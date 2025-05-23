@@ -1,4 +1,4 @@
-import './Table.css';
+import './table.css';
 import React from 'react';
 
 /*
@@ -9,9 +9,12 @@ columnAlign: Optional align of content of each column
 variant: Optional style of table, can be grid or list
 textColor: Optional color of text font
 backgroundColor: Optional color of background table
+hoverEffect: Activate or desactivate hover of card
 hoverColor: Optional color of hover when selecting row
 borders: Optional style of the lines of the border you want, values of none, only row and all cells
 borderColor: Optional color of border
+rounded: Optional selector of rounded style level
+shadow: Optional selector of shadow background style level
 */
 export interface TableProps {
   columns: number;
@@ -21,9 +24,12 @@ export interface TableProps {
   variant?: 'grid' | 'list';
   textColor?: string;
   backgroundColor?: string;
+  hoverEffect?: boolean;
   hoverColor?: string;
   borders?: 'none' | 'cell' | 'row';
   borderColor?: string;
+  rounded?: 'none' | 'medium' | 'strong';
+  shadow?: 'none' | 'default' | 'strong';
 }
 
 //Range of size for column, tagged with keywords
@@ -46,26 +52,32 @@ export const Table = ({
   variant = 'grid',
   textColor,
   backgroundColor,
+  hoverEffect = false,
   hoverColor,
   borders = 'cell',
-  borderColor = 'black'
+  borderColor = 'black',
+  rounded = 'medium',
+  shadow = 'none'
 }: TableProps) => {
-  //Checks for every style possible and default values
-  const styleVars = {
-    '--text-color': textColor || '#000',
-    '--bg-color': backgroundColor || '#fff',
-    '--hover-color': hoverColor || '#f9f9f9',
-    '--border-color': borderColor
-  } as React.CSSProperties;
-
   //Join all classnames selected
   const className = [
     'table',
     variant,
+    `table-rounded-${rounded}`,
+    `table-shadow-${shadow}`,
     `borders-${borders}`,
-  ]
-    .filter(Boolean)
-    .join(' ');
+    hoverEffect && 'hover',
+  ].filter(Boolean).join(' ');
+
+  //Apply for every style possible and default values
+  const styleVars = {
+    '--text-color': textColor || '#000',
+    '--bg-color': backgroundColor || '#fff',
+    '--border-color': borderColor,
+    ...(hoverEffect && { '--table-hover': hoverColor }),
+    
+  } as React.CSSProperties;
+
 
   //Transforms the keywords received to apply columnWidth on grid variant
   const gridTemplateColumns =

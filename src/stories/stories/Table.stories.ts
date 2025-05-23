@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react';
-import { Table } from './components/Table/Table';
-import { testData } from './components/Table/testData';
+import { Table } from '../components/Table/Table';
+import { testData } from '../components/Table/testData';
 
 const meta = {
   title: 'Example/Table',
