@@ -13,6 +13,15 @@ export interface NavItem {
     borderColor?: string;
 }
 
+export interface NavListProps {
+    links: NavItem[];
+    primaryColor?: string;
+    alignment?: "left" | "center" | "right";
+    buttonType?: "filled" | "outlined" | "text";
+    backgroundColor?: string;
+    direction?: "horizontal" | "vertical";
+}
+
 const alignmentMap = {
     left: "flex-start",
     center: "center",
@@ -25,22 +34,20 @@ const NavList = ({
     alignment = "left",
     buttonType = "filled",
     backgroundColor = "#fff",
-}: {
-    links: NavItem[];
-    primaryColor?: string;
-    alignment?: "left" | "center" | "right";
-    buttonType?: "filled" | "outlined" | "text";
-    backgroundColor?: string;
-}) => (
+    direction = "horizontal",
+}: NavListProps) => (
     <nav
         style={{
             display: "flex",
+            flexDirection: direction === "vertical" ? "column" : "row",
             gap: "1rem",
             alignItems: "center",
             justifyContent: alignmentMap[alignment],
             padding: "0.5rem 1rem",
             background: backgroundColor,
-            borderBottom: `2px solid ${primaryColor}`,
+            borderBottom: direction === "horizontal" ? `2px solid ${primaryColor}` : undefined,
+            height: direction === "vertical" ? "100vh" : undefined,
+            minWidth: direction === "vertical" ? 180 : undefined,
         }}
     >
         {links.map((link) => (
