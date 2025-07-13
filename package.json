@@ -1,5 +1,5 @@
 {
-  "name": "storybook",
+  "name": "custom-components-library",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,9 +11,10 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "dependencies": {
+  "peerDependencies": {
     "react": "^19.1.0",
-    "react-dom": "^19.1.0"
+    "react-dom": "^19.1.0",
+    "react-router-dom": "^6.18.0"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^3.2.6",
