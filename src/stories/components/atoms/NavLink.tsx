@@ -8,7 +8,7 @@ interface NavLinkProps extends Omit<ButtonProps, "onClick"> {
 }
 
 const getButtonStyles = (
-    buttonType: "filled" | "outlined" | "text",
+    buttonType: "filled" | "outlined" | "text" | 'full',
     primaryColor?: string,
     backgroundColor?: string,
     textColor?: string,
