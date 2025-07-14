@@ -1,0 +1,11 @@
+.nav {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.nav-link {
+    text-decoration: none;
+    color: var(--nav-link-color, #000);
+    font-weight: 500;
+    font-family: 'Nunito Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
