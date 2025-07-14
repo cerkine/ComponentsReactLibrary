@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { NavLink } from './NavLink';
+import { NavLink } from '../components/atoms/NavLink/NavLink';
 
 const meta = {
   component: NavLink,

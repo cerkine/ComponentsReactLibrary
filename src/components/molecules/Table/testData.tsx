@@ -1,4 +1,4 @@
-import { Button } from "../atoms/Button/Button";
+import { Button } from "../../atoms/Button/Button";
 
 export const testData = [
     ['Nombre', 'Edad', 'Acción'],

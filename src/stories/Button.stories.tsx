@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Button } from './Button';
+import { Button } from '../components/atoms/Button/Button';
 
 const meta = {
   component: Button,
@@ -19,3 +19,14 @@ export const Default: Story = {
     borderColor: "#000000"
   }
 };
+
+export const Verde: Story = {
+  args: {
+    label: "label",
+    textColor: "#ffffff",
+    backgroundColor: "#4CAF50",
+    hoverColor: "#45a049",
+    borderColor: "#4CAF50"
+  }
+};
+

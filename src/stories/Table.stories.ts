@@ -1,6 +1,6 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
-import { Table } from '../components/Table/Table';
-import { testData } from '../components/Table/testData';
+import { Table } from '../components/molecules/Table/Table';
+import { testData } from '../components/molecules/Table/testData';
 
 const meta = {
   title: 'Example/Table',

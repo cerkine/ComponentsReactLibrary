@@ -1,0 +1,33 @@
+.nav-list {
+    display: flex;
+}
+.nav-list-gap-none {
+    gap: 0;
+}
+.nav-list-gap-small {
+    gap: 0.5rem;
+}
+.nav-list-gap-medium {
+    gap: 1rem;
+}
+.nav-list-gap-large {
+    gap: 1.5rem;
+}
+.nav-list-gap-full {
+    gap: 2rem;
+}
+
+.nav-list-align-left {
+    justify-content: flex-start;
+}
+.nav-list-align-center {
+    justify-content: center;
+}
+.nav-list-align-right {
+    justify-content: flex-end;
+}
+
+.nav-list-fill {
+    flex: 1;
+    width: 100%;
+}
