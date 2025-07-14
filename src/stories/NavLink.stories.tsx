@@ -4,6 +4,7 @@ import { NavLink } from '../components/atoms/NavLink/NavLink';
 
 const meta = {
   component: NavLink,
+  tags: ['autodocs'],
 } satisfies Meta<typeof NavLink>;
 
 export default meta;
