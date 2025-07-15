@@ -1,0 +1,46 @@
+/*genereate a css file for the Input component */
+/* Input.css */
+.input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+.input-small {
+    font-size: 14px;
+}
+.input-medium {
+    font-size: 16px;
+}
+.input-large {
+    font-size: 18px;
+}
+.input-border-none {
+    border: none;
+}
+.input-border-small {
+    border: 1px solid;
+    border-radius: 4px;
+}
+.input-border-medium {
+    border: 2px solid;
+    border-radius: 6px;
+}
+.input-border-large {
+    border: 3px solid;
+    border-radius: 8px;
+}
+.input-shadow-default {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.input-shadow-strong {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.input-shadow-none {
+    box-shadow: none;
+}
+
