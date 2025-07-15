@@ -1,5 +1,5 @@
-import type { Meta, StoryObj } from '@storybook/react';
-import { Card } from '../components/Card/Card';
+import type { Meta, StoryObj } from '@storybook/react-vite';
+import { Card } from '../components/molecules/Card/Card';
 
 const meta = {
   title: 'Example/Card',

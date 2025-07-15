@@ -1,0 +1,33 @@
+.nav-bar {
+    display: flex;
+}
+.nav-bar-gap-none {
+    gap: 0;
+}
+.nav-bar-gap-small {
+    gap: 0.5rem;
+}
+.nav-bar-gap-medium {
+    gap: 1rem;
+}
+.nav-bar-gap-large {
+    gap: 1.5rem;
+}
+.nav-bar-gap-full {
+    gap: 2rem;
+}
+
+.nav-bar-align-left {
+    justify-content: flex-start;
+}
+.nav-bar-align-center {
+    justify-content: center;
+}
+.nav-bar-align-right {
+    justify-content: flex-end;
+}
+
+.nav-bar-fill {
+    flex: 1;
+    width: 100%;
+}
