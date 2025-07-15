@@ -1,0 +1,35 @@
+.side-bar {
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.side-bar-gap-small {
+    gap: 8px;
+}
+
+.side-bar-gap-medium {
+    gap: 16px;
+}
+
+.side-bar-gap-large {
+    gap: 24px;
+}
+
+.side-bar-fill {
+    height: 100%;
+}
+.side-bar-background {
+    background-color: var(--side-bar-bg, #f8f9fa);
+}
+.side-bar-align-start {
+    text-align: left;
+}
+.side-bar-align-center {
+    text-align: center;
+}
+.side-bar-align-right {
+    text-align: right;
+}
+
