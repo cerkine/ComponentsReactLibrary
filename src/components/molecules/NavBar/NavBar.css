@@ -1,33 +1,33 @@
-.nav-list {
+.nav-bar {
     display: flex;
 }
-.nav-list-gap-none {
+.nav-bar-gap-none {
     gap: 0;
 }
-.nav-list-gap-small {
+.nav-bar-gap-small {
     gap: 0.5rem;
 }
-.nav-list-gap-medium {
+.nav-bar-gap-medium {
     gap: 1rem;
 }
-.nav-list-gap-large {
+.nav-bar-gap-large {
     gap: 1.5rem;
 }
-.nav-list-gap-full {
+.nav-bar-gap-full {
     gap: 2rem;
 }
 
-.nav-list-align-left {
+.nav-bar-align-left {
     justify-content: flex-start;
 }
-.nav-list-align-center {
+.nav-bar-align-center {
     justify-content: center;
 }
-.nav-list-align-right {
+.nav-bar-align-right {
     justify-content: flex-end;
 }
 
-.nav-list-fill {
+.nav-bar-fill {
     flex: 1;
     width: 100%;
 }

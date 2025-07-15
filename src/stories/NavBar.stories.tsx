@@ -1,12 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import NavList from '../components/molecules/NavList/NavList';
+import Navbar from '../components/molecules/NavBar/NavBar';
 
 const meta = {
-  component: NavList,
+  component: Navbar,
   tags: ['autodocs'],
-  includeStories: [ 'SimpleFill', 'Default'],
-} satisfies Meta<typeof NavList>;
+  includeStories: ['SimpleFill', 'Default'],
+} satisfies Meta<typeof Navbar>;
 
 export default meta;
 
@@ -21,7 +21,19 @@ export const SimpleFill: Story = {
     ],
     fill: true,
     gap: 'none',
-  },
+    genericStyle: {
+      backgroundColor: "#fcbcbc",
+      border: "none",
+      hoverBackgroundColor: "#ffffff", //TODO: not working
+      hoverColor: "#000000", //TODO: not working
+      hoverEffect: true,
+      labelColor: "#000000",
+      rounded: "strong",
+      shadow: "none",
+      size: "medium",
+    },
+    backgroundColor: "#ff5555",
+  }
 };
 
 export const Default: Story = {
