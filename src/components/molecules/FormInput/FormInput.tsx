@@ -15,7 +15,7 @@ import './FormInput.css';
 export interface FormInputProps {
     label: string;
     type?: 'text' | 'email' | 'password' | 'number';
-    placeholder?: string;
+    placeholder: string;
     value?: string;
     onChange?: (value: string) => void;
     error?: string;
@@ -27,7 +27,6 @@ export const FormInput = ({
     type = 'text',
     placeholder,
     value,
-    onChange,
 }: FormInputProps) => {
 
     return (
@@ -37,7 +36,6 @@ export const FormInput = ({
                 type={type}
                 placeholder={placeholder}
                 value={value}
-                onChange={(e) => onChange?.(e)}
             />
         </div>
     );

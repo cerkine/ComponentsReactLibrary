@@ -1,3 +1,5 @@
+import { useState, type FocusEvent, type FocusEventHandler } from 'react';
+import { Label } from '../Label/Label';
 import './Input.css';
 
 
@@ -6,8 +8,8 @@ import './Input.css';
  */
 export interface InputProps {
     type: 'text' | 'password' | 'email' | 'number';
+    label: string;
     placeholder?: string;
-    onChange?: (value: string) => void;
     size?: 'small' | 'medium' | 'large';
     textColor?: string;
     backgroundColor?: string;
@@ -18,10 +20,13 @@ export interface InputProps {
     required?: boolean;
     autoFocus?: boolean;
     value?: string;
+    onFocus?: (event: FocusEvent) => void;
+    onBlur?: (event: FocusEvent) => void;
 }
 
 export const Input = ({
     type,
+    label,
     placeholder = '',
     size = 'medium',
     textColor = '#000000',
@@ -31,10 +36,36 @@ export const Input = ({
     shadow = 'none',
     disabled = false,
     required = false,
-    autoFocus = false
+    autoFocus = false,
+    onFocus = (() => { }),
+    onBlur = (() => { })
 }: InputProps) => {
+    const [labelValue, setLabelValue] = useState<string | undefined>(undefined);
+    const changeOnFocus: FocusEventHandler<HTMLInputElement> = (event) => {
+        const element = event.target;
+        if (!labelValue) {
+            setLabelValue(element.placeholder);
+            element.placeholder = placeholder;
+        }
+
+        onFocus(event);
+    };
+
+    const changeOnBlur: FocusEventHandler<HTMLInputElement> = (event) => {
+        const element = event.target;
+
+
+        if (!element.value || element.value == '') {
+            element.placeholder = label;
+            setLabelValue(undefined);
+        }
+
+        onBlur(event);
+    }
+
+
     const classNames = [
-        "input",
+        'input',
         `input-${size}`,
         `input-border-${borderRadius}`,
         `input-shadow-${shadow}`,
@@ -49,14 +80,25 @@ export const Input = ({
     };
 
     return (
-        <input
-            type={type}
-            placeholder={placeholder}
-            className={classNames}
-            style={style}
-            disabled={disabled}
-            required={required}
-            autoFocus={autoFocus}
-        />
+        <div className='div-input'>
+            <Label
+                text={labelValue}
+                color={borderColor}>
+            </Label>
+            <input
+                type={type}
+                placeholder={label}
+                className={classNames}
+                style={style}
+                disabled={disabled}
+                required={required}
+                autoFocus={autoFocus}
+                onFocus={changeOnFocus}
+                onBlur={changeOnBlur}
+            />
+        </div>
+
     );
+
+
 };

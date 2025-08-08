@@ -14,6 +14,14 @@ type Story = StoryObj<typeof meta>;
 export const Default: Story = {
   args: {
     type: 'text',
-    placeholder: 'Enter text...',
+    label: 'telefono',
+    placeholder: '606...',
   },
 };
+
+export const NoPlaceHolder: Story = {
+  args: {
+    type: 'text',
+    label: 'telefono',
+  },
+}

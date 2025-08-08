@@ -4,7 +4,7 @@ import './Label.css';
  * Label component props interface.
  */
 export interface LabelProps {
-    text: string;
+    text: string | undefined;
     size?: 'small' | 'medium' | 'large';
     color?: string;
     backgroundColor?: string;
