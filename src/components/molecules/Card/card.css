@@ -1,0 +1,187 @@
+/* card.css */
+.card {
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+    /* include padding in width */
+}
+
+.card-image img {
+    width: 100%;
+    /* image fills card width */
+    height: auto;
+    object-fit: cover;
+}
+
+.card-content {
+    padding: 0.75rem;
+    box-sizing: border-box;
+    width: 100%;
+}
+
+/* Radius utilities */
+.card-radius-none {
+    border-radius: 0;
+}
+
+.card-radius-small {
+    border-radius: 4px;
+}
+
+.card-radius-medium {
+    border-radius: 8px;
+}
+
+.card-radius-large {
+    border-radius: 16px;
+}
+
+.card-radius-full {
+    border-radius: 999px;
+}
+
+/* Border width utilities */
+.card-border-none {
+    border: none;
+}
+
+.card-border-thin {
+    border: 1px solid;
+}
+
+.card-border-medium {
+    border: 2px solid;
+}
+
+.card-border-thick {
+    border: 4px solid;
+}
+
+/* Border color utilities */
+.card-border-gray {
+    border-color: #ccc;
+}
+
+.card-border-primary {
+    border-color: #007bff;
+}
+
+.card-border-success {
+    border-color: #28a745;
+}
+
+.card-border-danger {
+    border-color: #dc3545;
+}
+
+/* Background color utilities */
+.card-bg-white {
+    background-color: #fff;
+}
+
+.card-bg-light {
+    background-color: #f8f9fa;
+}
+
+.card-bg-dark {
+    background-color: #343a40;
+    color: white;
+}
+
+.card-bg-primary {
+    background-color: #007bff;
+    color: white;
+}
+
+/* Shadow utilities */
+.card-shadow-none {
+    box-shadow: none;
+}
+
+.card-shadow-small {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.card-shadow-medium {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15);
+}
+
+.card-shadow-large {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+
+/* Size utilities */
+.card-size-small {
+    padding: 0.5rem;
+    font-size: 0.85rem;
+}
+
+.card-size-small .card-title {
+    font-size: 1rem;
+}
+
+.card-size-small .card-image img {
+    max-width: 120px;
+}
+
+/* Medium (default) */
+.card-size-medium {
+    padding: 1rem;
+    font-size: 1rem;
+}
+
+.card-size-medium .card-title {
+    font-size: 1.25rem;
+}
+
+.card-size-medium .card-image img {
+    max-width: 180px;
+}
+
+/* Large */
+.card-size-large {
+    padding: 1.5rem;
+    font-size: 1.15rem;
+}
+
+.card-size-large .card-title {
+    font-size: 1.5rem;
+}
+
+.card-size-large .card-image img {
+    max-width: 240px;
+}
+
+.card-top {
+    flex-direction: column;
+}
+
+.card-width-small {
+    width: 200px;
+}
+
+.card-width-medium {
+    width: 300px;
+}
+
+.card-width-large {
+    width: 400px;
+}
+
+.card-title,
+.card-data {
+    word-wrap: break-word;
+    /* breaks long words if needed */
+    overflow-wrap: break-word;
+    white-space: normal;
+    /* allow multiline wrap */
+    overflow: visible;
+    /* no clipping */
+}
+
+.card-description {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}

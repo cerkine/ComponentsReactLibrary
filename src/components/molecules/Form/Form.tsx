@@ -1,5 +1,5 @@
 import { Input, type InputProps } from '../../atoms/Input/Input';
-import './card.css';
+import './form.css';
 
 export interface DataInputProps {
     type: InputProps['type'];
