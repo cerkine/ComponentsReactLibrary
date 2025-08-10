@@ -4,6 +4,7 @@ import { Card, type DataInputProps } from './Card';
 
 const meta = {
   component: Card,
+  tags: ['autodocs']
 } satisfies Meta<typeof Card>;
 
 const data: DataInputProps[] =
