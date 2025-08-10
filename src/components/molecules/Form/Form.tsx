@@ -7,17 +7,17 @@ export interface DataInputProps {
     placeholder?: InputProps['placeholder'];
 }
 
-export interface CardProps {
+export interface FormProps {
 
     data: DataInputProps[];
 }
 
-export const Card = ({
+export const Form = ({
     data
 
-}: CardProps) => {
+}: FormProps) => {
     const className = [
-        'card',
+        'form',
 
     ].filter(Boolean).join(' ');
 

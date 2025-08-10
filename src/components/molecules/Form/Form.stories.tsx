@@ -1,11 +1,11 @@
 import type { Meta, StoryObj } from '@storybook/react-vite';
 
-import { Card, type DataInputProps } from './Card';
+import { Form, type DataInputProps } from './Form';
 
 const meta = {
-  component: Card,
+  component: Form,
   tags: ['autodocs']
-} satisfies Meta<typeof Card>;
+} satisfies Meta<typeof Form>;
 
 const data: DataInputProps[] =
   [
