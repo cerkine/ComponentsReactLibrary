@@ -33,6 +33,7 @@ export const FormInput = ({
         <div className="form-input">
             <Label text={label} />
             <Input
+                label={label}
                 type={type}
                 placeholder={placeholder}
                 value={value}
