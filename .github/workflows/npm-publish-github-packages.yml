@@ -1,22 +1,33 @@
 # This workflow will run tests using node and then publish a package to GitHub Packages when a release is created
 # For more information see: https://docs.github.com/en/actions/publishing-packages/publishing-nodejs-packages
-
-name: Node.js Package
+name: Publish React Component Library
 
 on:
+  push:
+    branches: [main, master]  # Run on pushes to main branches
   release:
-    types: [created]
+    types: [created]         # Also run when new releases are created
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
+          
+      - name: Install dependencies
+        run: npm ci
+          
+      - name: Build library
+        run: npm run build  # Make sure you have a build script in package.json
 
-  publish-gpr:
+      - name: Run tests
+        run: npm test       # Optional: Run your tests before publishing
+
+  publish:
     needs: build
     runs-on: ubuntu-latest
     permissions:
@@ -24,11 +35,20 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v4
+      
       - uses: actions/setup-node@v4
         with:
           node-version: 20
           registry-url: https://npm.pkg.github.com/
-      - run: npm ci
-      - run: npm publish
+          scope: "@cerkine"  # Important for scoped packages
+          
+      - name: Install dependencies
+        run: npm ci
+          
+      - name: Build library
+        run: npm run build  # Build again to ensure fresh artifacts
+          
+      - name: Publish to GitHub Packages
+        run: npm publish
         env:
-          NODE_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}
+          NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
