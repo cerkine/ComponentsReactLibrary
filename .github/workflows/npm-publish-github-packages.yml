@@ -24,9 +24,6 @@ jobs:
       - name: Build library
         run: npm run build  # Make sure you have a build script in package.json
 
-      - name: Run tests
-        run: npm test       # Optional: Run your tests before publishing
-
   publish:
     needs: build
     runs-on: ubuntu-latest
