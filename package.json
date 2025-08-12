@@ -1,6 +1,5 @@
 {
   "name": "@cerkine/custom-components-library",
-  "private": true,
   "version": "0.0.0",
   "type": "module",
   "repository": "https://github.com/cerkine/ComponentsReactLibrary",
@@ -45,6 +44,6 @@
   },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com",
-    "access": "public"
+    "access": "restricted"
   }
 }
