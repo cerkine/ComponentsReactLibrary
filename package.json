@@ -1,6 +1,6 @@
 {
   "name": "@cerkine/custom-components-library",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "type": "module",
   "repository": "https://github.com/cerkine/ComponentsReactLibrary",
   "scripts": {
@@ -11,12 +11,6 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
   },
-  "files": [
-    "dist",
-    "tailwind.config.ts",
-    "src/components",
-    "src/utils"
-  ],
   "peerDependencies": {
     "@tailwindcss/vite": "^4.1.11"
   },
