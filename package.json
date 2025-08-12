@@ -1,6 +1,6 @@
 {
   "name": "@cerkine/custom-components-library",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "type": "module",
   "repository": "https://github.com/cerkine/ComponentsReactLibrary",
   "scripts": {
@@ -10,6 +10,13 @@
     "preview": "vite preview",
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build"
+  },
+  "files": [
+    "dist",
+    "tailwind.config.js"
+  ],
+  "peerDependencies": {
+    "@tailwindcss/vite": "^4.1.11"
   },
   "devDependencies": {
     "@chromatic-com/storybook": "^4.1.0",
