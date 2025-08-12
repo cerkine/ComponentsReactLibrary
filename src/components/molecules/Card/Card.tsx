@@ -1,78 +1,99 @@
-import './card.css';
-import React from 'react';
+import {
+    backgroundColorMap,
+    borderColorMap,
+    borderMap,
+    paddingMap,
+    radiusMap,
+    shadowMap,
+    textColorLighterMap,
+    textColorMap,
+    textOverflowMap,
+    displayMap,
+    type AspectImage,
+    aspectMap,
+} from "../../../utils/tailwindMapper";
+import "./card.css";
+import { heighMap, widthMap, type CardStyle } from "./tailwindCardMapper";
 
-/*
-All of parameters are optional
-title: Title of card, can be a Component or plain text
-subtitle: Subtitle of card, can be a Component or plain text
-content: Content of card, can be a Component or plain text
-image: Image of card, can be a Component or plain text
-footer: Footer of card, can be a Component or plain text
-textColor: Color of text font
-backgroundColor: Color of background table
-hoverEffect: Activate or desactivate hover of card
-hoverColor: Color of hover when selecting row
-bordered: Activate or desactivate border of card
-borderColor: Color of border
-rounded: Selector of rounded style level
-shadow: Selector of shadow background style level
-*/
-export interface CardProps {
-    size: 'small' | 'medium' | 'large';
-    title?: React.ReactNode;
-    subtitle?: React.ReactNode;
-    content?: React.ReactNode;
-    image?: React.ReactNode;
-    footer?: React.ReactNode;
-    textColor?: string;
-    backgroundColor?: string;
-    hoverEffect?: boolean;
-    hoverColor?: string;
-    border?: 'none' | 'default' | 'strong';
-    borderColor?: string;
-    rounded?: 'none' | 'medium' | 'strong';
-    shadow?: 'none' | 'default' | 'strong';
+
+
+export interface DataCardProps {
+    key: string;
+    value: string;
+    separator?: ":" | "|" | "=>";
+}
+export interface CardProps extends CardStyle {
+    title: string;
+    description?: string;
+    data?: DataCardProps[];
+    image?: string;
+    //todo Not working as expected
+    aspectImage?: AspectImage;
 }
 
-export const Card = ({
-    size,
-    title,
-    subtitle,
-    content,
-    image,
-    footer,
-    textColor = '#000',
-    backgroundColor = '#fff',
-    hoverEffect = false,
-    hoverColor = '#f5f5f5',
-    border = 'none',
-    borderColor = '#ddd',
-    shadow = 'none',
-    rounded = 'none',
-}: CardProps) => {
-    const className = [
-        'card',
-        `card-${size}`,
-        `card-rounded-${rounded}`,
-        `card-shadow-${shadow}`,
-        `card-border-${border}`,
-        hoverEffect && 'hover',
-    ].filter(Boolean).join(' ');
 
-    const styleVars = {
-        '--card-bg': backgroundColor,
-        '--card-text': textColor,
-        '--card-border': borderColor,
-        ...(hoverEffect && { '--card-hover': hoverColor }),
-    } as React.CSSProperties;
+
+export const Card = ({
+    title,
+    description,
+    data,
+    image,
+    radius,
+    border,
+    borderColor,
+    backgroundColor,
+    shadow,
+    padding,
+    size,
+    width,
+    height,
+    textColor,
+    textOverflow,
+    display,
+    aspectImage
+
+}: CardProps) => {
+
+    const classNames = [
+        display && displayMap[display],
+        radius && radiusMap[radius],
+        border && borderMap[border],
+        shadow && shadowMap[shadow],
+        padding && paddingMap[padding],
+        size && heighMap[size] && widthMap[size],
+        !size && width && widthMap[width],
+        !size && height && heighMap[height],
+        backgroundColor && backgroundColorMap[backgroundColor],
+        borderColor && borderColorMap[borderColor],
+        textColor && textColorMap[textColor],
+        textOverflow && textOverflowMap[textOverflow],
+        "overflow-hidden"
+    ]
+        .filter(Boolean)
+        .join(" ");
+
 
     return (
-        <div className={className} style={styleVars}>
-            {title && <div className="card-title">{title}</div>}
-            {image && <div className="card-image">{image}</div>}
-            {subtitle && <div className="card-subtitle">{subtitle}</div>}
-            {content && <div className="card-content">{content}</div>}
-            {footer && <div className="card-footer">{footer}</div>}
+        <div className={classNames}>
+            {image && (
+                <div >
+                    <img className={aspectImage && aspectMap[aspectImage]} src={image} />
+                </div>
+            )}
+
+            <div className="inline">
+                <h3 >{title}</h3>
+                {description && <p className={[textColor && textColorLighterMap[textColor]].filter(Boolean)
+                    .join(" ")}>{description}</p>}
+                {data &&
+                    data.map((entry) => (
+                        <div>
+                            <span>{entry.key}</span>
+                            <span>{entry.separator || ":"}</span>
+                            <span>{entry.value}</span>
+                        </div>
+                    ))}
+            </div>
         </div>
     );
 };
