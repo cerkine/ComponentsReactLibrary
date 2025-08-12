@@ -1,9 +1,9 @@
 {
-  "name": "custom-components-library",
+  "name": "@cerkine/custom-components-library",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "repository":"https://github.com/cerkine/ComponentsReactLibrary",
+  "repository": "https://github.com/cerkine/ComponentsReactLibrary",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -42,5 +42,9 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com",
+    "access": "restricted"
   }
 }
