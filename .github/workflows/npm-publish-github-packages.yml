@@ -3,8 +3,6 @@
 name: Publish React Component Library
 
 on:
-  push:
-    branches: [main, master]  # Run on pushes to main branches
   release:
     types: [created]         # Also run when new releases are created
 
