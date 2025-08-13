@@ -1,16 +1,16 @@
 import {
+    aspectMap,
     backgroundColorMap,
     borderColorMap,
     borderMap,
+    displayMap,
+    getTextColorLighterMap,
+    getTextColorMap,
     paddingMap,
     radiusMap,
     shadowMap,
-    textColorLighterMap,
-    textColorMap,
     textOverflowMap,
-    displayMap,
     type AspectImage,
-    aspectMap,
 } from "../../../utils/tailwindMapper";
 import "./card.css";
 import { heighMap, widthMap, type CardStyle } from "./tailwindCardMapper";
@@ -65,7 +65,7 @@ export const Card = ({
         !size && height && heighMap[height],
         backgroundColor && backgroundColorMap[backgroundColor],
         borderColor && borderColorMap[borderColor],
-        textColor && textColorMap[textColor],
+        textColor && getTextColorMap()[textColor],
         textOverflow && textOverflowMap[textOverflow],
         "overflow-hidden"
     ]
@@ -83,7 +83,7 @@ export const Card = ({
 
             <div className="inline">
                 <h3 >{title}</h3>
-                {description && <p className={[textColor && textColorLighterMap[textColor]].filter(Boolean)
+                {description && <p className={[textColor && getTextColorLighterMap()[textColor]].filter(Boolean)
                     .join(" ")}>{description}</p>}
                 {data &&
                     data.map((entry) => (

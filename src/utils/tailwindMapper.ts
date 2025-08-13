@@ -4,10 +4,11 @@ export type BorderColor = "gray" | "red" | "blue";
 export type BackgroundColor = "white" | "gray" | "blue";
 export type Shadow = "none" | "small" | "medium" | "large";
 export type Padding = "small" | "medium" | "large" | "extraLarge";
-export type TextColor = "black" | "red" | "green" | "yellow";
+export type TextColor = string;
 export type TextOverflow = "truncate" | "wrap";
 export type Display = "column";
 export type AspectImage = "square" | "landscape" | "portrait";
+
 
 export const displayMap: Record<Display, string> = {
     column: 'flex flex-col'
@@ -52,22 +53,6 @@ export const paddingMap: Record<Padding, string> = {
     extraLarge: "p-8"
 };
 
-
-
-export const textColorMap: Record<TextColor, string> = {
-    black: "text-black",
-    red: "text-red-500",
-    green: "text-green-500",
-    yellow: "text-yellow-500",
-};
-
-export const textColorLighterMap: Record<TextColor, string> = {
-    black: "text-gray-600",
-    red: "text-red-300",
-    green: "text-green-300",
-    yellow: "text-yellow-300",
-};
-
 //TODO: Not working 
 export const textOverflowMap: Record<TextOverflow, string> = {
     truncate: "truncate",
@@ -80,6 +65,45 @@ export const aspectMap: Record<AspectImage, string> = {
     landscape: "aspect-video",
     portrait: "aspect-[3/4]"
 }
+
+const defaultTextColorMap = {
+  black: "text-black",
+  red: "text-red-500",
+  green: "text-green-500",
+  yellow: "text-yellow-500",
+};
+
+const defaultTextColorLighterMap = {
+  black: "text-gray-600",
+  red: "text-red-300",
+  green: "text-green-300",
+  yellow: "text-yellow-300",
+};
+
+let customTextColorMap: Record<string, string> = {...defaultTextColorMap};
+let customTextColorLighterMap: Record<string, string> = {...defaultTextColorLighterMap};
+
+export function configureTextColors(options: {
+  colors?: Record<string, string>;
+  lighterColors?: Record<string, string>;
+}) {
+  if (options.colors) {
+    customTextColorMap = {...defaultTextColorMap, ...options.colors};
+  }
+  if (options.lighterColors) {
+    customTextColorLighterMap = {...defaultTextColorLighterMap, ...options.lighterColors};
+  }
+}
+
+export function getTextColorMap() {
+  return customTextColorMap;
+}
+
+export function getTextColorLighterMap() {
+  return customTextColorLighterMap;
+}
+
+
 
 export type GenericStyle = {
     display?: Display;
