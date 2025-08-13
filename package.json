@@ -1,6 +1,6 @@
 {
   "name": "@cerkine/custom-components-library",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "type": "module",
   "repository": "https://github.com/cerkine/ComponentsReactLibrary",
   "scripts": {
